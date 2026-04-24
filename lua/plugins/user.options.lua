@@ -4,6 +4,7 @@ return {
   opts = {
     options = {
       opt = {
+        clipboard = "unnamedplus",
         -- vim.opt settings
         -- e.g. relativenumber = true,
       },
