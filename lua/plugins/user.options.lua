@@ -5,7 +5,7 @@ return {
     options = {
       opt = {
         -- 使用系统粘贴板
-        clipboard = "unnamedplus", 
+        clipboard = "unnamedplus",
         -- vim.opt settings
         -- e.g. relativenumber = true,
       },

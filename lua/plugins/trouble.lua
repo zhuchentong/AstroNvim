@@ -11,6 +11,7 @@ return {
     opts = {
       mappings = {
         n = {
+          -- 显示问题诊断列表
           ["<C-A-m>"] = { "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics" }, -- 打开当前文件诊断列表（Trouble 面板）
         },
       },
