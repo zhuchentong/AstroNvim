@@ -13,10 +13,6 @@ return {
         ["<F8>"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" }, -- 跳转到下一个诊断信息
         ["<S-F8>"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" }, -- 跳转到上一个诊断信息
         ["<C-m>"] = { function() vim.lsp.buf.code_action() end, desc = "Code Action" }, -- 触发 LSP 代码操作（快速修复、重构等）
-        ["<C-A-m>"] = { "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Document Diagnostics" }, -- 打开当前文件诊断列表（Trouble 面板）
-        ["<Leader>or"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerRun<CR>", desc = "Overseer Run" }, -- 打开 Overseer 面板并运行任务
-        ["<Leader>os"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerShell<CR>", desc = "Overseer Shell" }, -- 打开 Overseer 面板并启动 Shell
-        ["<Leader>ot"] = { "<Cmd>OverseerToggle<CR>", desc = "Overseer Toggle" }, -- 切换 Overseer 任务面板显示/隐藏
       },
       v = { -- Visual/Select 模式快捷键
         ["J"] = { "5j", desc = "Move down 5 lines" }, -- 向下移动5行
@@ -26,9 +22,7 @@ return {
         ["<Leader>j"] = { "J", desc = "Join lines" }, -- 将选中行合并为一行
       },
       i = {}, -- Insert 模式（暂无自定义快捷键）
-      t = { -- Terminal 模式快捷键
-        ["<C-q>"] = { "<Cmd>ToggleTerm float<CR>", desc = "Close float terminal" }, -- 隐藏浮动终端窗口
-      },
+      t = {}, -- Terminal 模式（快捷键已移至 toggleterm.lua）
     },
   },
 }
