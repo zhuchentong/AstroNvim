@@ -14,5 +14,6 @@ return {
   { import = "astrocommunity.motion.mini-move" },         -- 单/多行移动支持
   { import = "astrocommunity.pack.eslint" },              -- eslint支持
   { import = "astrocommunity.diagnostics.trouble-nvim" }, -- 诊断列表优化支持
+  { import = "astrocommunity.motion.flash-nvim" },        -- flash支持
 
 }
