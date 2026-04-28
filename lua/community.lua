@@ -12,8 +12,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- Vue 开发包：Vue 语言服务、语法高亮等
   { import = "astrocommunity.pack.vue" },
-  -- 图片显示支持：在终端中预览图片
-  { import = "astrocommunity.media.image-nvim" },
   -- 单/多行移动支持：使用快捷键上下移动行或选中块
   { import = "astrocommunity.motion.mini-move" },
   -- ESLint 支持包：集成 ESLint 代码检查
