@@ -25,7 +25,7 @@ return {
   -- 任务运行器：管理和执行异步任务（如构建、测试等）
   { import = "astrocommunity.code-runner.overseer-nvim" },
   -- 全文替换功能支持
-  { import = "astrocommunity.search.grug-far-nvim" },
+  { import = "astrocommunity.search.nvim-spectre" },
   -- Git Diff 支持
   { import = "astrocommunity.git.diffview-nvim" },
 }
