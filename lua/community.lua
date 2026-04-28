@@ -12,6 +12,8 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- Vue 开发包：Vue 语言服务、语法高亮等
   { import = "astrocommunity.pack.vue" },
+  -- Rust 开发包：Rust 语言服务、语法高亮等
+  { import = "astrocommunity.pack.rust" },
   -- 单/多行移动支持：使用快捷键上下移动行或选中块
   { import = "astrocommunity.motion.mini-move" },
   -- ESLint 支持包：集成 ESLint 代码检查
@@ -22,4 +24,8 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
   -- 任务运行器：管理和执行异步任务（如构建、测试等）
   { import = "astrocommunity.code-runner.overseer-nvim" },
+  -- 全文替换功能支持
+  { import = "astrocommunity.search.grug-far-nvim" },
+  -- Git Diff 支持
+  { import = "astrocommunity.git.diffview-nvim" },
 }
