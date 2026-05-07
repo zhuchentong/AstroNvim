@@ -7,9 +7,9 @@ return {
       -- 浮动终端窗口样式
       float_opts = {
         -- 圆角边框
-        border = "rounded", 
+        border = "rounded",
         -- 轻微透明
-        winblend = 15,      
+        winblend = 15,
       },
     },
   },
@@ -19,7 +19,7 @@ return {
     opts = {
       mappings = {
         -- Terminal 模式快捷键
-        t = { 
+        t = {
           -- 隐藏浮动终端窗口
           ["<C-q>"] = { "<Cmd>ToggleTerm float<CR>", desc = "Close float terminal" },
         },

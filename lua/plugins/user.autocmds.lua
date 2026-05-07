@@ -11,6 +11,7 @@ return {
           pattern = "SnacksDashboardOpened",
           desc = "Auto open neo-tree on dashboard",
           callback = function()
+            if vim.g.vscode then return end
             vim.schedule(function()
               vim.cmd "Neotree show"
             end)
