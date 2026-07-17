@@ -18,6 +18,12 @@ return {
   { import = "astrocommunity.pack.rust" },
   -- Dart 开发包: Dart, Flutter语言服务
   { import = "astrocommunity.pack.dart" },
+  -- C# 开发包: C#语言服务
+  { import = "astrocommunity.pack.cs" },
+  -- CPP 开发包: C++语言服务
+  { import = "astrocommunity.pack.cpp" },
+  -- MoonBit 开发包: MoonBit语言支持
+  { import = "astrocommunity.pack.moonbit" },
   -- 单/多行移动支持：使用快捷键上下移动行或选中块
   { import = "astrocommunity.motion.mini-move" },
   -- ESLint 支持包：集成 ESLint 代码检查

@@ -12,11 +12,11 @@ return {
       mappings = {
         n = {
           -- 打开 Overseer 面板并运行任务
-          ["<Leader>or"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerRun<CR>", desc = "Overseer Run" },
+          ["<Leader>Or"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerRun<CR>", desc = "Overseer Run" },
           -- 打开 Overseer 面板并启动 Shell
-          ["<Leader>os"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerShell<CR>", desc = "Overseer Shell" },
+          ["<Leader>Os"] = { "<Cmd>OverseerToggle<CR><Cmd>OverseerShell<CR>", desc = "Overseer Shell" },
           -- 切换 Overseer 任务面板显示/隐藏
-          ["<Leader>ot"] = { "<Cmd>OverseerToggle<CR>", desc = "Overseer Toggle" },
+          ["<Leader>Ot"] = { "<Cmd>OverseerToggle<CR>", desc = "Overseer Toggle" },
         },
       },
     },
