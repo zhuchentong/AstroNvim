@@ -8,6 +8,20 @@
 return {
   -- AstroCommunity 社区插件集合，提供各类预配置插件包
   "AstroNvim/astrocommunity",
+  -- 单/多行移动支持：使用快捷键上下移动行或选中块
+  { import = "astrocommunity.motion.mini-move" },
+  -- ESLint 支持包：集成 ESLint 代码检查
+  { import = "astrocommunity.pack.eslint" },
+  -- 诊断列表优化：提供结构化的诊断信息面板（问题、警告、错误一览）
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
+  -- Flash 跳转支持：快速跳转到页面内任意位置
+  { import = "astrocommunity.motion.flash-nvim" },
+  -- 任务运行器：管理和执行异步任务（如构建、测试等）
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+  -- 全文替换功能支持
+  { import = "astrocommunity.search.nvim-spectre" },
+  -- Git Diff 支持
+  { import = "astrocommunity.git.diffview-nvim" },
   -- Lua 开发包：LSP、格式化、补全等完整 Lua 开发环境
   { import = "astrocommunity.pack.lua" },
   -- Vue 开发包：Vue 语言服务、语法高亮等
@@ -24,18 +38,12 @@ return {
   { import = "astrocommunity.pack.cpp" },
   -- MoonBit 开发包: MoonBit语言支持
   { import = "astrocommunity.pack.moonbit" },
-  -- 单/多行移动支持：使用快捷键上下移动行或选中块
-  { import = "astrocommunity.motion.mini-move" },
-  -- ESLint 支持包：集成 ESLint 代码检查
-  { import = "astrocommunity.pack.eslint" },
-  -- 诊断列表优化：提供结构化的诊断信息面板（问题、警告、错误一览）
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
-  -- Flash 跳转支持：快速跳转到页面内任意位置
-  { import = "astrocommunity.motion.flash-nvim" },
-  -- 任务运行器：管理和执行异步任务（如构建、测试等）
-  { import = "astrocommunity.code-runner.overseer-nvim" },
-  -- 全文替换功能支持
-  { import = "astrocommunity.search.nvim-spectre" },
-  -- Git Diff 支持
-  { import = "astrocommunity.git.diffview-nvim" },
+  -- 强制启用 MoonBit LSP：绕过上游守卫 bug
+  -- astrocommunity.pack.moonbit 检查 legacy 命令名 `moonbit-lsp`，
+  -- 但实际安装的是原生 `moon-lsp`（~/.moon/bin/moon-lsp），守卫误判 → opts.lsp = false → LSP 禁用。
+  -- 覆盖后插件内部会解析到 moon-lsp --stdio。上游修复后可删此项。
+  {
+    "moonbit-community/moonbit.nvim",
+    opts = function(_, opts) opts.lsp = {} end,
+  },
 }
