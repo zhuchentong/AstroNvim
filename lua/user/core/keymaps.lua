@@ -13,8 +13,8 @@ return {
     -- 诊断信息跳转
     ["<F8>"] = { "<Cmd>DiagnosticJumpNext<CR>", desc = "下一个诊断信息" },
     ["<S-F8>"] = { "<Cmd>DiagnosticJumpPrev<CR>", desc = "上一个诊断信息" },
-    -- LSP 代码操作
-    ["<C-m>"] = { function() vim.lsp.buf.code_action() end, desc = "代码操作" },
+    -- LSP 代码操作：使用 AstroNvim 内置 gra / <Leader>la（均带 cond 守卫）
+    -- 注意：<C-m> 与 <CR> 在终端为同一字节(0x0D)，映射它会劫持回车键，故移除
     -- 通过 tabline 选择并关闭缓冲区
     ["<Leader>bd"] = {
       function()
