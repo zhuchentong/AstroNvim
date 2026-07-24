@@ -1,14 +1,42 @@
--- 覆盖 AstroNvim 的 snacks.nvim 配置，添加 SVG 格式支持
 return {
   "folke/snacks.nvim",
   opts = function(_, opts)
-    -- AstroNvim 设置了 opts.image = { doc = { enabled = false } }
-    -- 这覆盖了整个 image 配置，所以我们需要重新设置 formats
-    -- 保留 AstroNvim 的 doc 设置，但补充完整配置
-    -- 确保不覆盖 AstroNvim 已有的 image 配置
+    -- ========== Dashboard 启动画面 ==========
+    opts.dashboard = {
+      preset = {
+        header = table.concat({
+          " █████  ███████ ████████ ██████   ██████ ",
+          "██   ██ ██         ██    ██   ██ ██    ██",
+          "███████ ███████    ██    ██████  ██    ██",
+          "██   ██      ██    ██    ██   ██ ██    ██",
+          "██   ██ ███████    ██    ██   ██  ██████ ",
+          "",
+          "███   ██ ██   ██ ██ ███   ███",
+          "████  ██ ██   ██ ██ ████  ████",
+          "██ ██ ██ ██   ██ ██ ██ ████ ██",
+          "██ ████  ██  ██  ██ ██  ██  ██",
+          "██  ████  ████   ██ ██      ██",
+        }, "\n"),
+        keys = {
+          -- { key = "n", action = "<Leader>n",  icon = " ", desc = "New File  " },
+          -- { key = "f", action = "<Leader>ff", icon = " ", desc = "Find File  " },
+          -- { key = "o", action = "<Leader>fo", icon = " ", desc = "Recents  " },
+          -- { key = "w", action = "<Leader>fw", icon = " ", desc = "Find Word  " },
+          -- { key = "'", action = "<Leader>f'", icon = " ", desc = "Bookmarks  " },
+          -- { key = "s", action = "<Leader>Sl", icon = " ", desc = "Last Session  " },
+        },
+      },
+      sections = {
+        { section = "header",       padding = 5 },
+        { section = "keys",         gap = 1, padding = 3 },
+        { section = "recent_files", title = "Recent Files", limit = 5, padding = 2, intent = 2 },
+        { section = "projects",     title = "Projects",  limit = 5, padding = 2, intent = 2 },
+        { section = "startup" },
+      },
+    }
+
+    -- ========== Image 图片格式 ==========
     opts.image = opts.image or {}
-    -- 添加 svg 到 formats 列表中
-    -- snacks 默认 formats 不包含 svg，但它是通过 ImageMagick 渲染的
     opts.image.formats = {
       "png",
       "jpg",
@@ -26,13 +54,7 @@ return {
       "webm",
       "pdf",
       "icns",
-      "svg", -- 添加 SVG 支持
+      "svg",
     }
-
-    -- 可选：启用文档内图片预览（markdown 中的图片等）
-    -- 如果不需要，AstroNvim 的 opts.image = { doc = { enabled = false } } 已经禁止了
-    -- 要启用的话取消下面注释：
-    -- opts.image.doc = opts.image.doc or {}
-    -- opts.image.doc.enabled = true
   end,
 }
