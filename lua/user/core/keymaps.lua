@@ -24,9 +24,7 @@ return {
     -- 通过 tabline 选择并关闭缓冲区
     ["<Leader>bd"] = {
       function()
-        require("astroui.status.heirline").buffer_picker(
-          function(bufnr) require("astrocore.buffer").close(bufnr) end
-        )
+        require("astroui.status.heirline").buffer_picker(function(bufnr) require("astrocore.buffer").close(bufnr) end)
       end,
       desc = "从 tabline 关闭缓冲区",
     },

@@ -15,7 +15,10 @@ return {
             local seen, dedup = {}, {}
             for _, it in ipairs(ctx.items) do
               local key = string.format("%s:%d:%d", it.filename, it.lnum, it.col)
-              if not seen[key] then seen[key] = true; dedup[#dedup + 1] = it end
+              if not seen[key] then
+                seen[key] = true
+                dedup[#dedup + 1] = it
+              end
             end
             if #dedup == 1 then
               -- 单条：复用 Neovim 内置跳转（含 jumplist/tagstack/zv），不弹选择
