@@ -10,9 +10,15 @@ return {
     -- 缓冲区切换
     ["{"] = { "<Cmd>bprevious<CR>", desc = "上一个缓冲区" },
     ["}"] = { "<Cmd>bnext<CR>", desc = "下一个缓冲区" },
-    -- 诊断信息跳转
-    ["<F8>"] = { "<Cmd>DiagnosticJumpNext<CR>", desc = "下一个诊断信息" },
-    ["<S-F8>"] = { "<Cmd>DiagnosticJumpPrev<CR>", desc = "上一个诊断信息" },
+    -- 诊断信息跳转（使用 vim.diagnostic.jump，支持 [count] 前缀如 3<F8>）
+    ["<F8>"] = {
+      function() vim.diagnostic.jump { count = vim.v.count1 } end,
+      desc = "下一个诊断信息",
+    },
+    ["<S-F8>"] = {
+      function() vim.diagnostic.jump { count = -vim.v.count1 } end,
+      desc = "上一个诊断信息",
+    },
     -- LSP 代码操作：使用 AstroNvim 内置 gra / <Leader>la（均带 cond 守卫）
     -- 注意：<C-m> 与 <CR> 在终端为同一字节(0x0D)，映射它会劫持回车键，故移除
     -- 通过 tabline 选择并关闭缓冲区

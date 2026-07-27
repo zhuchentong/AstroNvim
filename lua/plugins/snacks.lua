@@ -27,10 +27,9 @@ return {
         },
       },
       sections = {
-        { section = "header",       padding = 5 },
-        { section = "keys",         gap = 1, padding = 3 },
-        { section = "recent_files", title = "Recent Files", limit = 5, padding = 2, intent = 2 },
-        { section = "projects",     title = "Projects",  limit = 5, padding = 2, intent = 2 },
+        { section = "header", padding = 5 },
+        { section = "recent_files", title = "Recent Files", limit = 5, padding = 2, indent = 2 },
+        { section = "projects", title = "Projects", limit = 5, padding = 2, indent = 2 },
         { section = "startup" },
       },
     }

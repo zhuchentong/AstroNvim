@@ -26,7 +26,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- Vue 开发包：Vue 语言服务、语法高亮等
   { import = "astrocommunity.pack.vue" },
-  -- Svelet 开发包: Svelet 语言服务
+  -- Svelte 开发包: Svelte 语言服务
   { import = "astrocommunity.pack.svelte" },
   -- Rust 开发包：Rust 语言服务、语法高亮等
   { import = "astrocommunity.pack.rust" },
