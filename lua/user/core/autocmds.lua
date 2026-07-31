@@ -45,4 +45,32 @@ return {
       end,
     },
   },
+  -- workaround: 绕过 Neovim 0.12 内置 inlay hint 越界列报错
+  -- vim/lsp/inlay_hint.lua:362 把 LSP 的 character 原样传给 nvim_buf_set_extmark，
+  -- 某些 server 偶发返回超出行长的列 → "Invalid 'col': out of range"。
+  -- 仅按命名空间 gate 钳制 inlayhint extmark 的 col；上游修复后整段删除。
+  inlay_hint_col_guard = {
+    {
+      event = "VimEnter",
+      once = true,
+      desc = "钳制 inlay hint extmark 列号（绕过 upstream 越界 bug）",
+      callback = function()
+        if vim.g._inlay_hint_clamp_done then return end
+        vim.g._inlay_hint_clamp_done = true
+        local api = vim.api
+        local cached
+        local orig = api.nvim_buf_set_extmark
+        api.nvim_buf_set_extmark = function(buf, ns_id, row, col, ...)
+          if type(col) == "number" and col > 0 then
+            if not cached then cached = api.nvim_get_namespaces()["nvim.lsp.inlayhint"] end
+            if cached and ns_id == cached then
+              local ok, lines = pcall(api.nvim_buf_get_lines, buf, row, row + 1, false)
+              if ok and lines and lines[1] and col > #lines[1] then col = #lines[1] end
+            end
+          end
+          return orig(buf, ns_id, row, col, ...)
+        end
+      end,
+    },
+  },
 }
