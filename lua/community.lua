@@ -12,6 +12,15 @@ return {
   { import = "astrocommunity.motion.mini-move" },
   -- ESLint 支持包：集成 ESLint 代码检查
   { import = "astrocommunity.pack.eslint" },
+  -- Oxlint 支持包：高性能 JS/TS Linter（oxlint --lsp）
+  -- 与 ESLint 按项目二选一：oxlint 仅在含 .oxlintrc.json / oxlint.config.ts /
+  -- package.json 含 oxlint 依赖的项目启动（workspace_required），纯 ESLint 项目不受影响。
+  { import = "astrocommunity.pack.oxlint" },
+  -- conform.nvim 格式化层：统一接管保存时格式化
+  -- 包内已自动设置 astrolsp.formatting.disabled=true、mason-null-ls.methods.formatting=false，
+  -- 并提供 :Format 命令、<Leader>lf/lc/uf/uF 键、formatexpr、lsp_format="fallback"。
+  -- 具体格式化器由 lua/plugins/conform.lua 的 formatters_by_ft 登记（oxfmt / stylua）。
+  { import = "astrocommunity.editing-support.conform-nvim" },
   -- 诊断列表优化：提供结构化的诊断信息面板（问题、警告、错误一览）
   { import = "astrocommunity.diagnostics.trouble-nvim" },
   -- Flash 跳转支持：快速跳转到页面内任意位置
