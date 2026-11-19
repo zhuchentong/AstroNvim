@@ -39,6 +39,7 @@ Leader = `<Space>`，LocalLeader = `,`。
 - **MoonBit LSP 覆盖**（`lua/community.lua`）：astrocommunity 的 moonbit 包用旧命令名 `moonbit-lsp` 做守卫，但实际装的是 `moon-lsp`，导致 LSP 被误禁。已用 `opts = function(_, opts) opts.lsp = {} end` 强制启用。上游修复后可删。
 - **gd 去重**（`lua/user/lsp/mappings.lua`）：Vue 文件 vue_ls + vtsls 双挂会产生重复定义条目，`gd` 已按 `filename:lnum:col` 去重；单条直接跳转，多条才弹选择。
 - **ESLint 保存时自动修复**（`lua/user/lsp/on_attach.lua`）：为 `eslint` server 注册 `BufWritePre` → `eslint.applyAllFixes`。
+- **vim.diagnostic.set 未加载 buffer 守卫**（`lua/user/lsp/patches.lua`，由 `user/lsp/init.lua` 顶部引入）：LSP 对未加载 buffer 推送带过期 `lnum` 的诊断后，重新打开该文件时 underline handler 在 `diagnostic.lua:1845` 以未 clamp 的 `lnum` 读行导致 E565 崩溃（neo-tree 打开文件可触发）。上游 neovim#40839 已修但 0.12.5 未 backport；修复进入 stable 后可删。
 - **禁用 `<C-m>` 映射**：终端中 `<C-m>` 与 `<CR>` 是同一字节 (0x0D)，映射它会劫持回车。本仓库不映射 `<C-m>`。
 
 ## 已配置的语言包（community.lua）

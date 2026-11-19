@@ -1,6 +1,8 @@
 -- AstroLSP 用户配置聚合模块
 -- 由 plugins/astrolsp.lua 通过 opts = require "user.lsp" 引入
 -- 对应插件: AstroNvim/astrolsp
+require "user.lsp.patches" -- 上游缺陷补丁（见 AGENTS.md），需早于任何 LSP 诊断推送
+
 return {
   features = require "user.lsp.features", -- LSP 功能开关
   formatting = require "user.lsp.formatting", -- 格式化配置
